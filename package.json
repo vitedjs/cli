@@ -1,7 +1,7 @@
 {
-  "name": "cli",
-  "version": "1.0.0",
-  "description": "",
+  "name": "@vited/cli",
+  "version": "0.0.1",
+  "description": "Vited CLI",
   "keywords": [],
   "homepage": "https://github.com/vitedjs/cli#readme",
   "bugs": {
@@ -47,7 +47,7 @@
     "preset": "@guoyunhe/node-scripts"
   },
   "dependencies": {
-    "commander": "^10.0.0"
+    "commander": "^11.0.0"
   },
   "devDependencies": {
     "@guoyunhe/node-scripts": "^2.2.0",
