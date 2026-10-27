@@ -1,17 +1,8 @@
 #!/usr/bin/env node
 
-import { Command } from 'commander';
-import { action } from '..';
+import packageJson from '../../package.json' with { type: 'json' };
+import { createProgram } from '..';
 
-const program = new Command('cli');
-
-program
-  .argument('[word]', 'Word to print on console')
-  .option('--repeat <times>', 'Print repeat times, 1 by default', parseInt)
-  .action(action);
-
-program.helpOption('-h, --help', 'Show full help');
-
-program.version(PACKAGE_VERSION, '-v, --version', 'Show version number');
-
-program.parse();
+const program = createProgram();
+program.version(packageJson.version, '-v, --version', 'Show version number');
+await program.parseAsync();

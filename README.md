@@ -1,48 +1,13 @@
-# cli
+# @vited/cli
 
-## Install
-
-### Run directly
+The `vited` command runs Vite using `vited.config.ts`.
 
 ```bash
-npx cli
+npm install -D @vited/cli @vited/core @vited/theme-mantine vite react react-dom
+npx vited dev
+npx vited build
+npx vited preview
 ```
 
-### Install on system
-
-```bash
-npm i -g cli
-%binName%
-```
-
-### Install in project
-
-```bash
-npm i -D cli
-```
-
-Add script entry:
-
-```json
-{
-  "scripts": {
-    "%binName%": "%binName%"
-  }
-}
-```
-
-Run:
-
-```bash
-npm run %binName%
-```
-
-## Options
-
-### `--help`
-
-Show help
-
-### `--version`
-
-Show version
+Commands accept an optional project root and `--config <file>`. The development
+and preview servers also accept `--host` and `--port`.
