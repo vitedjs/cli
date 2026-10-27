@@ -8,8 +8,14 @@ export interface VitedServices {
   preview(options: InlineConfig): Promise<unknown>;
 }
 
+async function startDevServer(options: InlineConfig): Promise<unknown> {
+  const server = await createServer(options);
+  await server.listen();
+  return server;
+}
+
 export function createProgram(
-  services: VitedServices = { dev: createServer, build, preview },
+  services: VitedServices = { dev: startDevServer, build, preview },
 ): Command {
   const program = new Command('vited');
   program.description('Develop and build Vited documentation sites');
