@@ -51,6 +51,7 @@
     "commander": "^14.0.0"
   },
   "peerDependencies": {
+    "@vited/core": "^0.1.0",
     "vite": "^8.3.5"
   },
   "devDependencies": {
