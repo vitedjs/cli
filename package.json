@@ -6,26 +6,25 @@
   "bugs": {
     "url": "https://github.com/vitedjs/cli/issues"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vitedjs/cli.git"
-  },
-  "license": "MIT",
+  "license": "MPL-2.0",
   "author": {
     "name": "Guo Yunhe",
     "email": "i@guoyunhe.me"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitedjs/cli.git"
+  },
+  "bin": {
+    "vited": "./dist/bin/cli.mjs"
+  },
+  "files": [
+    "dist",
+    "CHANGELOG.md",
+    "LICENSE",
+    "README.md"
+  ],
   "type": "module",
-  "engines": {
-    "node": "^20.19.0 || >=22.12.0"
-  },
-  "devEngines": {
-    "packageManager": {
-      "name": "pnpm",
-      "version": ">=12.14.0",
-      "onFail": "error"
-    }
-  },
   "main": "./dist/index.mjs",
   "types": "./dist/index.d.mts",
   "exports": {
@@ -34,33 +33,54 @@
       "import": "./dist/index.mjs"
     }
   },
-  "bin": {
-    "vited": "./dist/bin/cli.mjs"
-  },
-  "files": ["dist", "CHANGELOG.md", "LICENSE", "README.md"],
   "scripts": {
     "build": "tsdown",
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
+    "lint": "oxlint",
+    "prepare": "husky",
     "test": "vitest run",
     "test:watch": "vitest"
   },
-  "prettier": {
-    "printWidth": 100,
-    "singleQuote": true
-  },
   "dependencies": {
     "commander": "^14.0.0"
+  },
+  "devDependencies": {
+    "@guoyunhe/editorconfig": "^0.3.0",
+    "@guoyunhe/oxfmt-config": "^1.1.0",
+    "@types/node": "^22.15.30",
+    "@vited/core": "link:../core",
+    "@vited/theme-mantine": "link:../theme-mantine",
+    "husky": "^9.1.7",
+    "lint-staged": "^17.6.0",
+    "oxfmt": "^0.74.0",
+    "oxlint": "^1.89.0",
+    "oxlint-config-recommended": "^1.1.0",
+    "tsdown": "^0.23.2",
+    "typescript": "^5.8.3",
+    "vite": "^8.3.5",
+    "vitest": "^5.0.5"
   },
   "peerDependencies": {
     "@vited/core": "^0.1.0",
     "vite": "^8.3.5"
   },
-  "devDependencies": {
-    "@vited/core": "link:../core",
-    "@vited/theme-mantine": "link:../theme-mantine",
-    "@types/node": "^22.15.30",
-    "tsdown": "^0.23.2",
-    "typescript": "^5.8.3",
-    "vite": "^8.3.5",
-    "vitest": "^5.0.5"
+  "lint-staged": {
+    "*.{js,mjs,cjs,ts,mts,cts,jsx,tsx,vue}": [
+      "oxfmt --write",
+      "oxlint --fix"
+    ],
+    "*.css": "oxfmt --write",
+    "*.{json,jsonc,scss,less,htm,html,md,mdx,yaml,yml}": "oxfmt --write"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": ">=12.14.0",
+      "onFail": "error"
+    }
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
   }
 }

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import packageJson from '../../package.json' with { type: 'json' };
 import { createProgram } from '..';
+import packageJson from '../../package.json' with { type: 'json' };
 
 const program = createProgram();
 program.version(packageJson.version, '-v, --version', 'Show version number');

@@ -1,4 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
+
 import { createProgram } from '.';
 
 describe('createProgram()', () => {
@@ -26,10 +27,21 @@ describe('createProgram()', () => {
       preview: vi.fn(),
     });
 
-    await program.parseAsync(['node', 'vited', 'dev', '.', '--host', '127.0.0.1', '--port', '5174']);
+    await program.parseAsync([
+      'node',
+      'vited',
+      'dev',
+      '.',
+      '--host',
+      '127.0.0.1',
+      '--port',
+      '5174',
+    ]);
 
-    expect(dev).toHaveBeenCalledWith(expect.objectContaining({
-      server: { host: '127.0.0.1', port: 5174 },
-    }));
+    expect(dev).toHaveBeenCalledWith(
+      expect.objectContaining({
+        server: { host: '127.0.0.1', port: 5174 },
+      }),
+    );
   });
 });

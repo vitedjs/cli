@@ -1,4 +1,5 @@
 import path from 'node:path';
+
 import { Command } from 'commander';
 import { build, createServer, preview, type InlineConfig } from 'vite';
 
