@@ -1,6 +1,6 @@
 {
   "name": "@vited/cli",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "CLI for Vited documentation sites",
   "homepage": "https://github.com/vitedjs/cli#readme",
   "bugs": {
