@@ -46,7 +46,6 @@
     "commander": "^14.0.0"
   },
   "devDependencies": {
-    "@guoyunhe/editorconfig": "^0.3.0",
     "@guoyunhe/oxfmt-config": "^1.1.0",
     "@types/node": "^22.15.30",
     "@vited/core": "link:../core",
